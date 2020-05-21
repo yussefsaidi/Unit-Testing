@@ -6,6 +6,7 @@ import androidx.room.Room;
 
 import com.yussefsaidi.unittesting.persistence.NoteDao;
 import com.yussefsaidi.unittesting.persistence.NoteDatabase;
+import com.yussefsaidi.unittesting.repository.NoteRepository;
 
 import javax.inject.Singleton;
 
