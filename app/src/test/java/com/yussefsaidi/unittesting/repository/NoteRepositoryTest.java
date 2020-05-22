@@ -15,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 import io.reactivex.Single;
 
+import static com.yussefsaidi.unittesting.repository.NoteRepository.NOTE_TITLE_NULL;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -94,7 +95,7 @@ public class NoteRepositoryTest {
     @Test
     void insertNote__nullTitle_throwException() throws Exception {
 
-        Assertions.assertThrows(Exception.class, new Executable() {
+        Exception exception = Assertions.assertThrows(Exception.class, new Executable() {
             @Override
             public void execute() throws Throwable {
                 final Note note = new Note(TestUtil.TEST_NOTE_1);
@@ -102,6 +103,9 @@ public class NoteRepositoryTest {
                 noteRepository.insertNote(note);
             }
         });
+
+        Assertions.assertEquals(NOTE_TITLE_NULL, exception.getMessage());
+
     }
 
 
